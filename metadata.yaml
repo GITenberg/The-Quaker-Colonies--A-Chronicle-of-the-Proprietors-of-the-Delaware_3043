@@ -1,0 +1,38 @@
+_repo: The-Quaker-Colonies--A-Chronicle-of-the-Proprietors-of-the-Delaware_3043
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Fisher, Sydney George
+    birthdate: 1856
+    deathdate: 1927
+    gutenberg_agent_id: '1102'
+    url: http://www.gutenberg.org/2009/agents/1102
+  editor:
+    agent_name: Johnson, Allen
+    birthdate: 1870
+    deathdate: 1931
+    gutenberg_agent_id: '1084'
+    url: http://www.gutenberg.org/2009/agents/1084
+    wikipedia: http://en.wikipedia.org/wiki/Allen_Johnson_(historian)
+description: ''
+gutenberg_bookshelf:
+- Children's History
+- United States
+gutenberg_issued: '2002-01-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '3043'
+language: en
+publication_note: 'New Haven :  Yale University Press,  1919'
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+series_note: Chronicles of America series; v. 08
+subjects:
+- !lcc 'E186'
+- !lcsh 'New Jersey -- History -- Colonial period, ca. 1600-1775'
+- !lcsh 'Pennsylvania -- History -- Colonial period, ca. 1600-1775'
+- !lcsh 'Delaware -- History -- Colonial period, ca. 1600-1775'
+- GITenberg
+title: 'The Quaker Colonies: A Chronicle of the Proprietors of the Delaware'
+url: http://www.gutenberg.org/ebooks/3043
