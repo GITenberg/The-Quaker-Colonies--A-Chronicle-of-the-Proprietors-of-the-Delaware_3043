@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: ykqLXi2P6me19aLlT5jDFsCUQt1r9CRha0JcEjjLvv8ut+KjerXJHojo2AWY4LWvM7Wgjc+QeYJXTm34oNRzBmsmAN0GdVc6bB1BODbj6zVEoOv/p86gW4I507+QsvpbFgSWD1tgYn824XftW9YbSKKk6zbILxh4TbaRZeRuqyTvr7WJL0tMkvkrlL3L7mxkb9z6/rjPze6OzupzitDF678APYrvBP/bg/DR+n+DGuhrlbaOo8KlboMjaJ/TF+0GON5efZNyc5mUbm/fEXY4xmlk3i0kNLAYL/2cMWV5iEyL2tXyQy2Vm1K89y/QMaHHhaY0RdJdQl0ggUcf3GPCaPpaaAbEW7wiI0HQHhw9Z7iisTA/ulRG/V5l0W3FGOqN6ZHH2nZtxa8fEF2gE6MJBWrE5HGeIgzi7QYyURDDk5AEdiNorPfl+PSYeQnPYZnNK6iihJ4c6+Ue9/eoYg/btY8/LmN7KnJWPD2lZ2YvpxXuL2QPKOS/Z1vc8n8uduftJNfwGJpnxPkIetTenuILhqpHY6Lmsvi+us8U2nzd+AEOvba3qC+4J+iHgiQaGWG8XF6JsbiI1MDRZNukHql8TYuB31pZ7ERbrMR4+cYpdWoLrmR+PrvOtheBMDyIp0Llq5TeN5oXmyxCg3SA5RpOLQ3cw36z84Y6de/6SjXVzyw=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Quaker-Colonies--A-Chronicle-of-the-Proprietors-of-the-Delaware_3043
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
