@@ -1,5 +1,8 @@
 _repo: The-Quaker-Colonies--A-Chronicle-of-the-Proprietors-of-the-Delaware_3043
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Fisher, Sydney George
@@ -15,6 +18,8 @@ creator:
     url: http://www.gutenberg.org/2009/agents/1084
     wikipedia: http://en.wikipedia.org/wiki/Allen_Johnson_(historian)
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/3043#The-Quaker-Colonies--A-Chronicle-of-the-Proprietors-of-the-Delaware
 gutenberg_bookshelf:
 - Children's History
 - United States
